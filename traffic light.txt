@@ -1,0 +1,66 @@
+package prem;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Trafic extends JFrame implements ActionListener {
+    private JRadioButton redBtn, yellowBtn, greenBtn;
+    private JLabel messageLabel;
+    private ButtonGroup group;
+
+    public Trafic() {
+        // Frame setup
+        setTitle("Traffic Light Simulation");
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
+        // Message label
+        messageLabel = new JLabel("");
+        messageLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        add(messageLabel);
+
+        // Radio buttons
+        redBtn = new JRadioButton("Red");
+        yellowBtn = new JRadioButton("Yellow");
+        greenBtn = new JRadioButton("Green");
+
+        // Button group
+        group = new ButtonGroup();
+        group.add(redBtn);
+        group.add(yellowBtn);
+        group.add(greenBtn);
+
+        // Add radio buttons to frame
+        add(redBtn);
+        add(yellowBtn);
+        add(greenBtn);
+
+        // Action listeners
+        redBtn.addActionListener(this);
+        yellowBtn.addActionListener(this);
+        greenBtn.addActionListener(this);
+
+        // Show frame
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (redBtn.isSelected()) {
+            messageLabel.setText("STOP");
+            messageLabel.setForeground(Color.RED);
+        } else if (yellowBtn.isSelected()) {
+            messageLabel.setText("READY");
+            messageLabel.setForeground(Color.ORANGE);
+        } else if (greenBtn.isSelected()) {
+            messageLabel.setText("GO");
+            messageLabel.setForeground(Color.GREEN);
+        }
+    }
+
+    public static void main(String[] args) {
+        new Trafic();  // Fixed this line
+    }
+}
