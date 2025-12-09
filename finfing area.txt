@@ -1,0 +1,39 @@
+package rem1;
+
+import java.util.Scanner;
+
+class shape {
+    Scanner sc = new Scanner(System.in);
+}
+
+class circle extends shape {
+    public void area() {
+        System.out.println("enter radius of circle:");
+        double r = sc.nextDouble();
+        double area = Math.PI * r * r;
+        System.out.println("area of circle=" + area);
+    }
+}
+
+class ractangle extends shape {
+    public void area() {
+        System.out.println("enter length of rectangle: ");
+        double length = sc.nextDouble();
+        System.out.println("enter breadth of rectangle:");
+        double breadth = sc.nextDouble();
+        
+        double area = length * breadth;
+        System.out.println("area of rectangle=" + area);
+    }
+}
+
+public class calculation {
+    public static void main(String[] args) {
+        circle c = new circle();
+        ractangle r1 = new ractangle();
+
+        System.out.println("area of circle and rectangle:");
+        c.area();
+        r1.area();
+    }
+}
